@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+:root {
+    --primary-color: #0ec099;    
+    --secondary-color: #089274;    
+    --dark-color: #053328;    
+    --light-color: #e1e6e5; 
+    --success-color: #14dd1e; 
+    --error-color: #dd1e17;  
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+    color: #333344;
+    line-height: 1.6;
+    background-color: #f3f3f1;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333344;
+}
+
+h1, h2{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px, 0;
+}
+
+p{
+    margin: 10px, 0;
+}
+
+img{
+    width: 100%;
+}
+
+code, pre {
+    background-color: #131314;
+    color: #f3f3f1;
+}
+
+.hidden {
+    visibility: hidden;
+    height: 0;
+}
+/*Navbar*/
+.navbar{
+    background-color:var(--primary-color);
+    color: #f3f3f1;
+    height: 70px;
+}
+
+.navbar ul{
+    display: flex;
+} /*display ul inline*/
+
+.navbar a {
+    color: #f3f3f1;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px #f3f3f1 solid ;
+}
+
+.navbar .flex{
+    justify-content: space-between;
+}
+
+/*Showcase*/
+.showcase{
+    height: 400px;
+    background-color:var(--primary-color);
+    color: #f3f3f1;
+    position: relative;
+}
+
+.showcase h1{
+    font-size: 40px;
+}
+
+.showcase p{
+    margin: 30px, 0;
+    text-align: justify; 
+    width: fit-content;
+    
+}
+
+.showcase .grid{
+    overflow: visible; /*shows properties in full rather with a scrollbar*/
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+}
+
+.showcase-text{
+    animation: slideInFromLeft 1s ease-in;
+}
+
+.showcase-form{
+    position: relative;
+    top: 60px;
+    height: 350px;
+    width: 400px;
+    padding: 40px;
+    z-index: 100;
+    animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-form .form-control{
+    margin: 30px 0;
+}
+
+.showcase-form input[type='text'],
+.showcase-form input[type='email'] {
+    border: 0;
+    border-bottom: 1px solid #c5baca;
+    width: 100%;
+    padding: 3.2px;
+    font-size: 15.5px;
+    background-color: #f3f3f1;
+}
+
+.showcase-form input:focus{
+    outline: none;
+}
+
+.showcase::before,
+.showcase::after{
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background:#f3f3f1;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+/*Stats*/
+.stats{
+    padding-top: 100px;
+    animation: slideInFromBottom 1s ease-in;
+}
+
+.stats-heading{
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3{
+    font-size: 35px;
+}
+
+.stats .grid p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*Cli*/
+.cli .grid{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid >*:first-child{
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+/*cloud*/
+.cloud .grid{
+    grid-template-columns: 4fr 3fr;
+}
+
+/*language*/
+.languages .flex{
+    flex-wrap: wrap;
+}
+
+.languages .card{
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in;
+}
+
+.languages .card h4{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.languages .card:hover{
+    transform: translateY(-15px);
+}
+
+
+/*Features page*/
+.features-head img, .features-sub-head img, .document-head img{
+    width: 200px;
+    justify-self: flex-end;
+}
+
+.features-sub-head img{
+    width: 300px;
+    justify-self: flex-end;
+}
+
+.features-main .card >i{
+    margin-right: 20px;
+}
+
+.features-main .grid{
+    padding: 30px;
+}
+
+.features-main .grid >*:first-child{
+    grid-column: 1/span 3;
+}
+
+.features-main .grid >*:nth-child(2){
+    grid-column: 1/span 2;
+}
+
+/*Documentations*/
+.document-main h3{
+    margin: 20px 0;
+}
+
+.document-main .grid{
+    grid-template-columns: 1fr 2fr; /*fr-fraction*/
+    align-items: flex-start; /*aligns items to the top on y axis*/
+}
+
+.document-main nav li{
+    font-size: 16px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px #c5baca solid;
+}
+
+.document-main a:hover{
+    font-weight: bold;
+}
+
+
+/*footer*/
+.footer .social a{
+    margin: 0 10px;
+}
+
+/*Animations*/
+@keyframes slideInFromLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight{
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop{
+    0%{
+        transform: translateY(-100%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom{
+    0%{
+        transform: translateY(100%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/*Media queries*/
+/*Tablets and under*/
+@media (max-width: 768px){
+   .grid,
+   .showcase .grid,
+   .stats .grid,
+   .cli .grid,
+   .cloud .grid,
+   .features-main .grid,
+   .document-main .grid {
+       grid-template-columns: 1fr;
+       grid-template-rows: 1fr;
+   }
+
+   .showcase{
+       height: auto;
+   }
+
+   .showcase-text{
+       text-align: center;
+       margin-top: 40px;
+       animation: slideInFromTop 1s ease-in;
+   }  
+   
+   .showcase-form {
+       justify-self: center;
+       margin: auto;
+       animation: slideInFromBottom 1s ease-in;
+
+   }
+
+   .cli .grid >*:first-child{
+    grid-column: 1;
+    grid-row: 1;
+    }
+
+    .features-head,
+    .features-sub-head,
+    .document-head {
+        text-align: center;
+    }
+
+    .features-head img,
+    .features-sub-head img,
+    .document-head img {
+        justify-self: center;
+    }
+
+    .features-main .grid >*:first-child,
+    .features-main .grid >*:nth-child(2){
+        grid-column: 1; /*Stack items in one column*/
+    }
+}
+/*Mobile*/
+@media (max-width:500px){
+    .navbar{
+        height: 110px;
+    }
+
+    .navbar .flex {
+        flex-direction: column;
+    }
+
+    .navbar ul{
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+}
